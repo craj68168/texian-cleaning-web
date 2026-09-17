@@ -849,3 +849,33 @@ footer {
     padding-bottom: 88px;
   }
 }
+
+.form-message {
+  margin-top: 18px;
+  padding: 13px 15px;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-weight: 650;
+  line-height: 1.55;
+}
+
+.form-message.success {
+  background: #ecf8f2;
+  border: 1px solid #bfe8d1;
+  color: #17623d;
+}
+
+.form-message.error {
+  background: #fff0f0;
+  border: 1px solid #f1c3c3;
+  color: #9a2929;
+}
+
+.form-note {
+  text-align: center;
+}
+
+.submit:disabled {
+  opacity: 0.7;
+  cursor: wait;
+}
