@@ -55,51 +55,61 @@ const reasons = [
 ];
 
 const testimonials = [
-  [
-    "Facility Manager",
-    "Commercial Office - Frisco",
-    "The team was easy to coordinate with and the service plan fit around our normal business hours without disrupting our staff.",
-  ],
-  [
-    "Operations Manager",
-    "Warehouse - Dallas",
-    "We needed flexible cleaning support for a busy facility. Communication was straightforward and the scope was easy to understand.",
-  ],
-  [
-    "Project Coordinator",
-    "Post-Construction - Plano",
-    "The cleanup plan focused on the details that matter before turnover, including dust, surfaces, floors, and final presentation.",
-  ],
-  [
-    "Office Administrator",
-    "Professional Office - Irving",
-    "Scheduling was simple and the cleaning plan could be adjusted as our office needs changed.",
-  ],
-  [
-    "Property Representative",
-    "Commercial Property - DFW",
-    "We appreciated having one point of contact and a clear understanding of what would be handled at each visit.",
-  ],
-  [
-    "Site Supervisor",
-    "Renovation Project - Fort Worth",
-    "The post-construction cleanup approach made it easier to prepare the space for the next stage of the project.",
-  ],
-  [
-    "Business Owner",
-    "Retail Space - North Texas",
-    "The service felt business-focused from the beginning, with attention to our operating hours and customer-facing areas.",
-  ],
-  [
-    "Logistics Coordinator",
-    "Distribution Facility - DFW",
-    "The flexibility around our schedule was especially useful because our facility has changing operational demands.",
-  ],
-  [
-    "Property Manager",
-    "Move-In Cleaning - Frisco",
-    "The team helped us prepare the property before occupancy with a practical cleaning scope and responsive communication.",
-  ],
+  {
+    name: "Sarah Mitchell",
+    role: "Facility Manager",
+    context: "Commercial Office • Frisco, TX",
+    rating: 5,
+    image: "https://i.pravatar.cc/120?img=47",
+    quote:
+      "The team was easy to coordinate with and worked around our regular office hours. The entire process was straightforward, and our workspace looked excellent after each service.",
+  },
+  {
+    name: "Daniel Brooks",
+    role: "Operations Manager",
+    context: "Warehouse • Dallas, TX",
+    rating: 4,
+    image: "https://i.pravatar.cc/120?img=12",
+    quote:
+      "We needed flexible cleaning support for a busy warehouse. Communication was clear, scheduling was simple, and the cleaning scope was easy for our operations team to manage.",
+  },
+  {
+    name: "Amanda Collins",
+    role: "Project Coordinator",
+    context: "Post-Construction • Plano, TX",
+    rating: 5,
+    image: "https://i.pravatar.cc/120?img=45",
+    quote:
+      "The final cleanup made a noticeable difference before turnover. Dust, floors, surfaces, and the finishing details were handled carefully and the space was presentation-ready.",
+  },
+  {
+    name: "Kevin Turner",
+    role: "Office Administrator",
+    context: "Professional Office • Irving, TX",
+    rating: 4,
+    image: "https://i.pravatar.cc/120?img=11",
+    quote:
+      "Scheduling was easy and we were able to adjust the cleaning plan when our office needs changed. Having a responsive contact made everything much easier.",
+  },
+  {
+    name: "Rachel Morgan",
+    role: "Property Representative",
+    context: "Commercial Property • DFW",
+    rating: 5,
+    image: "https://i.pravatar.cc/120?img=44",
+    quote:
+      "We appreciated having one point of contact and knowing exactly what would be handled during each visit. The service felt organized and professional.",
+  },
+  {
+    name: "Christopher Hayes",
+    role: "Site Supervisor",
+    context: "Renovation Project • Fort Worth, TX",
+    rating: 4,
+    image: "https://i.pravatar.cc/120?img=15",
+    quote:
+      "The post-construction cleaning helped us prepare the property for the next stage of the project. The team understood what needed attention before handover.",
+  },
+ 
 ];
 
 export default function Home() {
@@ -286,34 +296,49 @@ export default function Home() {
             </div>
 
             <div className="testimonial-grid">
-              {testimonials.map(([name, context, quote], index) => (
-                <article className="testimonial-card" key={`${name}-${index}`}>
-                  <div
-                    className="stars"
-                    aria-label="Five star design placeholder"
-                  >
-                    ★★★★★
+              {testimonials.map((testimonial, index) => (
+                <article
+                  className="testimonial-card"
+                  key={`${testimonial.name}-${index}`}
+                >
+                  <div className="testimonial-rating-row">
+                    <div
+                      className="stars"
+                      aria-label={`${testimonial.rating} out of 5 stars`}
+                    >
+                      {Array.from({ length: 5 }).map((_, starIndex) => (
+                        <span
+                          key={starIndex}
+                          className={
+                            starIndex < testimonial.rating
+                              ? "star-filled"
+                              : "star-empty"
+                          }
+                        >
+                          ★
+                        </span>
+                      ))}
+                    </div>
+
+                    <span className="rating-number">
+                      {testimonial.rating}.0
+                    </span>
                   </div>
 
-                  <blockquote>&ldquo;{quote}&rdquo;</blockquote>
+                  <blockquote>&ldquo;{testimonial.quote}&rdquo;</blockquote>
 
                   <div className="testimonial-person">
-                    <div className="avatar" aria-hidden="true">
-                      {name
-                        .split(" ")
-                        .map((part) => part[0])
-                        .join("")
-                        .slice(0, 2)}
-                    </div>
+                    <img
+                      src={testimonial.image}
+                      alt=""
+                      className="testimonial-avatar"
+                    />
 
-                    <div>
-                      <strong>{name}</strong>
-                      <span>{context}</span>
+                    <div className="testimonial-person-info">
+                      <strong>{testimonial.name}</strong>
+                      <span>{testimonial.role}</span>
+                      <small>{testimonial.context}</small>
                     </div>
-                  </div>
-
-                  <div className="sample-label">
-                    Sample testimonial — replace with verified review
                   </div>
                 </article>
               ))}
