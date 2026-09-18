@@ -60,7 +60,7 @@ const testimonials = [
     role: "Facility Manager",
     context: "Commercial Office • Frisco, TX",
     rating: 5,
-    image: "https://i.pravatar.cc/120?img=47",
+    image: "https://i.pravatar.cc/120?img=48",
     quote:
       "The team was easy to coordinate with and worked around our regular office hours. The entire process was straightforward, and our workspace looked excellent after each service.",
   },
@@ -69,7 +69,7 @@ const testimonials = [
     role: "Operations Manager",
     context: "Warehouse • Dallas, TX",
     rating: 4,
-    image: "https://i.pravatar.cc/120?img=12",
+    image: "https://i.pravatar.cc/120?img=49",
     quote:
       "We needed flexible cleaning support for a busy warehouse. Communication was clear, scheduling was simple, and the cleaning scope was easy for our operations team to manage.",
   },
@@ -105,7 +105,7 @@ const testimonials = [
     role: "Site Supervisor",
     context: "Renovation Project • Fort Worth, TX",
     rating: 4,
-    image: "https://i.pravatar.cc/120?img=15",
+    image: "https://i.pravatar.cc/120?img=50",
     quote:
       "The post-construction cleaning helped us prepare the property for the next stage of the project. The team understood what needed attention before handover.",
   },
