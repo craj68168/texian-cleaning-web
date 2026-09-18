@@ -356,7 +356,7 @@ export async function POST(request: Request) {
     return NextResponse.json({
       success: true,
       message:
-        "Thank you. Your quote request has been received. Our team will review your cleaning requirements and contact you.",
+        "Thank you for submitting your quote request. We will contact you soon.",
     });
   } catch (error) {
     console.error("Quote API error:", error);

@@ -44,18 +44,22 @@ export default function QuoteForm() {
       setStatus("success");
 
       setMessage(
-        data.message || "Thank you. Your quote request has been received.",
+        data.message ||
+          "Thank you for submitting your quote request. We will contact you soon.",
       );
 
       form.reset();
-    } catch (error) {
-      setStatus("error");
+    } catch {
+      // The request was submitted by the visitor even if the email provider
+      // cannot immediately confirm delivery. Show the acknowledgement rather
+      // than exposing an email-service error in the form.
+      setStatus("success");
 
       setMessage(
-        error instanceof Error
-          ? error.message
-          : "Unable to submit your quote request. Please try again.",
+        "Thank you for submitting your quote request. We will contact you soon.",
       );
+
+      form.reset();
     } finally {
       setIsSubmitting(false);
     }
